@@ -1,0 +1,197 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+
+  &:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+
+  &.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) {
+    .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; // Sidebar takes up full height of window
+  // width: 250px; // Set width as needed
+  background-color: #EFF6FA;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+
+  .sidebar-header {
+    text-align: left;
+    .logo{
+      width: 60px;height: 60px;
+      padding: 0;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      opacity: 0.5; // 50% transparency
+      transition: opacity 300ms ease-in-out; // Smooth transparency transitions
+      &:hover {
+        opacity: 1; // Opaque on mouseover
+      }
+      img{
+        width: 100%;
+      }
+    }
+    h1 {
+      margin: 0;
+      color: #30BCC9;
+      font-size: 30px;
+      font-style: italic; 
+    }
+    p {
+      //Description text style
+      color: #30BCC9; // Description text color
+      font-size: 1em; //Description text size
+      font-weight: 600; // font weight
+      margin-bottom: 2em; // Spacing from the content below
+      &:hover {
+        color: lighten(#646cff, 10%); // Lightens when the mouse is hovering
+      }
+  
+      // Add a simple animation to make text float
+      animation: floaty 2s ease-in-out infinite alternate;
+  
+      @keyframes floaty {
+        from {
+          transform: translateY(-5px);
+          color: #30BCC9;
+        }
+        to {
+          transform: translateY(5px);
+          color: lighten(#646cff, 5%);
+        }
+      }
+    }
+  }
+
+  .sidebar-content {
+    padding-top:20px ;
+    flex: 1; // Make the content area scalable, taking up all available space
+    .chat-list {
+      padding: 20px;
+      overflow-y: auto;
+      .chat-item {
+        padding: 10px 15px;
+        // background-color: #24282D; // Dark item background to match the theme
+        color: #C9D1D9; 
+        margin-bottom: 10px;
+        background-color: #FFFFFF; // White background for chat items
+        color: #333333; // Dark text color for chat items
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05); // Subtle shadow for depth
+        border-radius: 8px; // Rounded corners for chat items
+        margin-bottom: 10px; // Space between chat items
+        transition: background-color 0.3s ease; //
+        cursor: pointer;
+        &:hover {
+          background-color: #EBEEF0; 
+        }
+        .chat-item-content {
+          .chat-name {
+            display: block;
+            font-size: 16px;
+            font-weight: 500;
+          }
+          .chat-amount {
+            display: block;
+            font-size: 14px;
+            color: #8b949e;
+          }
+        }
+      }}
+  }
+
+  .sidebar-footer {
+    button.sidebar-button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #30BCC9;
+      color: white;
+      cursor: pointer;
+      &:hover {
+        background-color: darken(#30BCC9, 10%);
+      }
+    }
+  }
+}
+.chat-item-selected{
+  border:3px solid #30BCC9!important;
+}
+.model-text{
+  font-size: 14px;
+  font-weight: 500;
+}
+// Define the keyframes for the fade-in effect
+@keyframes botFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px); // Adjust as needed
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes userFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(30px); // Adjust as needed
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Apply the animation to your message component
+.message {
+  &-bot-enter {
+    animation: botFadeIn 0.5s ease-out forwards; 
+  }
+  &-user-enter {
+    animation: userFadeIn 0.5s ease-out forwards; 
+  }
+}
