@@ -17,7 +17,7 @@ app.add_middleware(
 
 client = OpenAI(
   base_url = "https://integrate.api.nvidia.com/v1",
-  api_key = "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"
+  api_key = "your own key"
 )
 class Prompt(BaseModel):
     role: str
